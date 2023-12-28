@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        letter-spacing: 1.5px;
+        
+    }
+
+    .main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+    }
+
+    body{
+        background-color: rgb(5, 48, 81);
+    }
+
+    .box{
+        /* border:2px solid black; */
+        width: 50%;
+        height: 50vh;
+        position: absolute;
+        top: 90px;
+        left: 80px;
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        justify-content: space-between;
+        
+    }
+
+    img{
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    .text{
+        /* border :2px solid red; */
+    }
+
+    .text h1{
+        color: rgb(180, 195, 210);
+        font-size: 45px;
+    }
+
+    .out_box{
+        /* border: 2px solid rgb(238, 19, 238); */
+        width: 100%;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        border-radius: 10px;
+        
+    }
+
+    .output{
+        width: 90%;
+        height: 55px;
+        border: none;
+        padding: 5px;
+        margin-right: 10px;
+        font-size: 26px;
+     
+    }
+    .out_box img{
+      
+        left: 100%;
+        
+    }
+
+    .two{
+        text-decoration: rgb(6, 180, 6) underline;
+    
+    }
+
+    .genrator{
+        background-color: green;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        margin: 5px;
+        padding: 20px;
+        font-size: 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        
+    }
+    
+
+    img:hover{
+        width: 38px;
+        height: 38px;
+    }
+
+
+    .genrator:hover{
+        font-size: 28px;
+       
+    }
+</style>
+
+<body>
+
+    <div class="main">
+        <div class="box">
+
+            <div class="text">
+                <h1 class="one">Genrate a</h1>
+                <h1 class="two">Random Password</h1>
+            </div>
+    
+            <div class="out_box">
+                <input class="output"  type="text" placeholder="password">
+                <img onclick="cpy()" src="images/copy.png" alt="copy">
+            </div>
+    
+            <div class="genrator" onclick="genrate()">
+                <img src="./images/generate.png" alt="">
+                <h3>Genrate password</h3>
+            </div>
+    
+    
+    
+        </div>
+    </div>
+    
+   
+<script>
+    function genrate()
+    {
+        let a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"//26
+       let b = "1234567890"//10
+       let c = "!@#$%^&*()"//10
+let pass = ""
+        for(let i = 0;i<5;i++){
+        pass  = a[Math.floor(Math.random()*26)] + b[Math.floor(Math.random()*10)] + c[Math.floor(Math.random()*10)] + pass
+      
+        }
+       
+
+        let box = document.querySelector(".output");
+        box.value = pass;
+    }
+
+    function cpy(){
+        let box = document.querySelector(".output");
+        box.select();
+        document.execCommand("cut");
+
+    }
+</script>
+
+</body>
+</html>
